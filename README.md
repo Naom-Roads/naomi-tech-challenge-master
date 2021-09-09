@@ -5,7 +5,7 @@ This repository contains the source code for a small metrics app which provides 
 
 It's only a simple beginning, though, so we'd like for you to add a few features to it! Below is a list of features we'd like to add. Please pick at least 2-3 tasks and give yourself no more than 5 hours to complete them.
 
-- **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines
+- **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (NEEDS REVIEW)
 - **Bugfix**: Currently if the same machine reports new values, it will create new Metric records. Change POST /metrics to update an existing Metric value if there already exists a record with the same machine_id and category.
 - **Improvement**: Currently the POST /metrics endpoint is unsecured. Add some sort of authentication, could be a shared static api_key parameter.
 - **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address.
