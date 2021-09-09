@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="report-list-wrapper">
+        <h6><i class="fas fa-chart-pie"></i> REPORTS</h6>
+        <br>
+        <div class="list-group">
+          <% @categories.each do |c| %>
+            <%= link_to c.titleize.upcase, root_path(category: c), class: "list-group-item #{(@category == c)? 'list-group-item-active active' : ''}" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h6><%= @category.titleize.upcase %></h6>
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <%= pie_chart @chart_data, legend: "right" %>
+        </div>
+      </div>
+      <br>
+      <table class="table table-striped table-sm" id="report-table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <%= link_to root_path, id: "sort-toggle", data: { sort: (@sort_dir == 'ASC')? 'DESC' : 'ASC'} do %>
+                <i class="fas fa-caret-square-down"></i>
+              <% end %>
+            MACHINE ID</th>
+            <th scope="col"><%= @category.titleize.upcase %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @metrics.each do |m| %>
+            <tr>
+              <td><%= m.machine_id %></td>
+              <td><%= m.value %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to "Load More", root_path, class: "btn btn-primary btn-block", id: "btn-load-more", data: { category: @category, sort: @sort_dir, page: 2 } %>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>

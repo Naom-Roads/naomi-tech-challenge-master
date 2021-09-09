@@ -1,0 +1,16 @@
+body {
+  padding-top:100px;
+}
+
+h6 {
+  border-bottom:1px solid #333;
+}
+
+.report-list-wrapper {
+  overflow-y: auto;
+  .list-group-item {
+    padding:0.2em 0.5em;
+    font-size:0.8rem;
+    font-weight:bold;
+  }
+}
