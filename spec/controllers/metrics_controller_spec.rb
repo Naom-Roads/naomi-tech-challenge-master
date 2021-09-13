@@ -31,6 +31,8 @@ RSpec.describe MetricsController, type: :controller do
         }
         expect(response.status).to eq 400
       end
+    end
+
 
       it "should return an error code if category is missing" do
         post :create, params: {
@@ -42,7 +44,7 @@ RSpec.describe MetricsController, type: :controller do
         }
         expect(response.status).to eq 400
       end
-
+    end
       it "should return an error code if value is missing" do
         post :create, params: {
           metric: {
@@ -54,6 +56,19 @@ RSpec.describe MetricsController, type: :controller do
         expect(response.status).to eq 400
       end
     end
-  end
 
+
+describe "creates or updates a metric" do 
+  context "when machine_id and category exist" do 
+    it "updates the existing value instead of creating a new metric record" do 
+      post :create, params: {
+        metric: {
+          machine_id: Faker::Internet.uuid,
+          category: "ram_usage",
+          value: 30
+        }
+      }
+      expect(response.status).to eq 400
+    end
+  end
 end

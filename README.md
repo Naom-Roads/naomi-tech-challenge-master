@@ -5,8 +5,14 @@ This repository contains the source code for a small metrics app which provides 
 
 It's only a simple beginning, though, so we'd like for you to add a few features to it! Below is a list of features we'd like to add. Please pick at least 2-3 tasks and give yourself no more than 5 hours to complete them.
 
-- **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (NEEDS REVIEW)
+- **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (NEEDS REVIEW) -Check what actually changes the page 
+
 - **Bugfix**: Currently if the same machine reports new values, it will create new Metric records. Change POST /metrics to update an existing Metric value if there already exists a record with the same machine_id and category.
+
+<!-- We need to check to see if the machine_id and category already exist. If they do then we will update the current values else we will save new values  -->
+
+
+
 - **Improvement**: Currently the POST /metrics endpoint is unsecured. Add some sort of authentication, could be a shared static api_key parameter.
 - **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address.
 - **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid.
@@ -19,6 +25,7 @@ Database setup
 -----
 ```
 sudo -u postgres psql
+psql -U USERNAME postgres /* if above does not work use this to sign in */
 postgres=# create database statapp_development;
 postgres=# create user statapp with encrypted password 'statapp';
 postgres=# grant all privileges on database statapp_development to statapp;

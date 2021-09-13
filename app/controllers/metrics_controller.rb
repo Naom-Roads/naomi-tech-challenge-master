@@ -15,14 +15,30 @@ class MetricsController < ApplicationController
        }
     end
   end
-  def create
-    metric = Metric.new(metric_params)
-    if metric.save
-      render json: metric.to_json, status: 201
+
+# def update 
+#   metric = Metrics.select(category: metric_params[:category], machine_id: metric_params[:machine_id])
+#   if metric.exists?
+#       Metric.update(value)
+#       render json: metric.to_json, status: 201
+
+# end  // Ask about creating another method during dev hour 
+
+def create
+   if metric_params[:category].nil? || metric_params[:machine_id].nil? 
+    return render json: {data: params, errors: metric.errors.full_messages}.to_json, status: 400  
+   end
+
+  metric = Metric.where(category: metric_params[:category], machine_id: metric_params[:machine_id])
+    if metric.exists?
+     metric.update(:value => metric_params[:value])
+     render status: 204
     else
-      render json: {data: params, errors: metric.errors.full_messages}.to_json, status: 400
+      metric = Metric.new(metric_params)
+      metric.save
+      render json: metric.to_json, status: 201
     end
-  end
+end
 
   private
 

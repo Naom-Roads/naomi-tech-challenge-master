@@ -6,6 +6,11 @@ class MetricsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should create metric" do 
+    post metrics_create_url 
+    assert_response :success
+  end
+
   test "should get show" do
     get metrics_show_url
     assert_response :success
