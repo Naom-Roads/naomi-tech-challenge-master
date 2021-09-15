@@ -46,3 +46,15 @@ $(document).ready(function (){
       loadMore(this);
    });
 });
+
+// function search() {
+//   document.getElementById('search').addEventListener('input', searchFunction)
+
+//   function searchFunction() {
+//     let search = document.getElementsByClassName(search).value()
+
+//   let arr = Array.from(getElementsByClassName)
+
+//   }
+
+// }

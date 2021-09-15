@@ -25,9 +25,6 @@ class MetricsController < ApplicationController
 # end  // Ask about creating another method during dev hour 
 
 def create
-   if metric_params[:category].nil? || metric_params[:machine_id].nil? 
-    return render json: {data: params, errors: metric.errors.full_messages}.to_json, status: 400  
-   end
 
   metric = Metric.where(category: metric_params[:category], machine_id: metric_params[:machine_id])
     if metric.exists?
@@ -39,6 +36,13 @@ def create
       render json: metric.to_json, status: 201
     end
 end
+
+def show 
+
+
+
+end 
+
 
   private
 
