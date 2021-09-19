@@ -60,15 +60,20 @@ RSpec.describe MetricsController, type: :controller do
 
 describe "creates or updates a metric" do 
   context "when machine_id and category exist" do 
+    before do 
+      @metric = Metric.last 
+    end
     it "updates the existing value instead of creating a new metric record" do 
       post :create, params: {
         metric: {
-          machine_id: Faker::Internet.uuid,
+          machine_id: @metric.machine_id,
           category: "ram_usage",
           value: 30
         }
       }
-      expect(response.status).to eq 400
+      expect(response.status).to eq 204
     end
   end
 end
+
+# Two tests that sends in fake category, uses metric.category 

@@ -24,7 +24,7 @@
         <thead>
           <tr>
             <th scope="col">
-              <%= link_to root_path, id: "sort-toggle", data: { sort: (@sort_dir == 'ASC')? 'DESC' : 'ASC'} do %>
+              <%= link_to root_path, id: "sort-toggle", data: { sort: (@sort_dir == 'ASC')? 'DESC' : 'ASC', page: 0 } do %>
                 <i class="fas fa-caret-square-down"></i>
               <% end %>
             MACHINE ID</th>
@@ -41,7 +41,7 @@
         </tbody>
       </table>
       <br>
-      <%= link_to "Load More", root_path, class: "btn btn-primary btn-block", id: "btn-load-more", data: { category: @category, sort: @sort_dir, page: 2 } %>
+      <%= link_to "Load More", root_path, class: "btn btn-primary btn-block", id: "btn-load-more", data: { category: @category, sort: @sort_dir, page: @page } %>
       <br>
       <br>
     </div>

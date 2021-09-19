@@ -4,11 +4,9 @@ var loadMore = function(btn) {
   var page = btn.data('page');
   var sort = btn.data('sort');
 
-  if(page == 0) {
-    var url = btn.attr('href') + "?category=" + category + "&sort=" + sort;
-  } else {
-    var url = btn.attr('href') + "?category=" + category + "&page=" + page + "&sort=" + sort;
-  }
+ 
+  var url = btn.attr('href') + "?category=" + category + "&page=" + page + "&sort=" + sort;
+
 
   console.log(url);
 
@@ -17,13 +15,14 @@ var loadMore = function(btn) {
     dataType: "json",
     type: "GET",
     success: function(response) {
-      var table = $('#report-table').find('tbody');
+      var table = $('table#report-table').find('tbody');
       if(page == 0) { 
         table.html(''); 
         console.log(response.sort == 'ASC');
         $('#btn-load-more').data('sort', response.sort).data('page', 1);
         $('#sort-toggle').data('sort', (response.sort == 'ASC') ? 'DESC' : 'ASC');
         $('#sort-toggle').find('i').toggleClass('fa-caret-square-up').toggleClass('fa-caret-square-down');
+   
        } else {
         btn.data('page', parseInt(page, 10) + 1);     
       }
@@ -47,14 +46,3 @@ $(document).ready(function (){
    });
 });
 
-// function search() {
-//   document.getElementById('search').addEventListener('input', searchFunction)
-
-//   function searchFunction() {
-//     let search = document.getElementsByClassName(search).value()
-
-//   let arr = Array.from(getElementsByClassName)
-
-//   }
-
-// }

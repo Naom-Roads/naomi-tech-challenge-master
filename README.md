@@ -7,11 +7,11 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 
 - **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (NEEDS REVIEW)
 
-<!--  * Page loading is happening in the metrics.js, dynamic load is working, but page 0 and 1 load the same data so changing page to start at page 2 on the index.html page seems like the a solution that won't change the rest of the code.  -->
+<!--  * Page 2 worked coincidently but the bug is actually with the function that detects what page the load is on. Changing the url to 2 and then clicking load more resulted in the page going back to the original page set. It should have gone to the next page.  -->
 
 - **Bugfix**: Currently if the same machine reports new values, it will create new Metric records. Change POST /metrics to update an existing Metric value if there already exists a record with the same machine_id and category. (NEEDS REVIEW)
 
-<!-- ** I created the check in the create method, but I feel that their should be a seperate method for update. I haven't been able to test this yet, because I am having issues getting rspec to load fake data -->
+<!-- ** I had to create two tests for this to work, I need to put both of those together within the api test-->
 
 
 - **Improvement**: Currently the POST /metrics endpoint is unsecured. Add some sort of authentication, could be a shared static api_key parameter.
