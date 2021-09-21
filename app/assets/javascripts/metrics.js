@@ -5,7 +5,11 @@ var loadMore = function(btn) {
   var sort = btn.data('sort');
 
  
-  var url = btn.attr('href') + "?category=" + category + "&page=" + page + "&sort=" + sort;
+  if(page == 0) {
+    var url = btn.attr('href') + "?category=" + category + "&sort=" + sort;
+  } else {
+    var url = btn.attr('href') + "?category=" + category + "&page=" + page + "&sort=" + sort;
+  }
 
 
   console.log(url);
@@ -19,10 +23,10 @@ var loadMore = function(btn) {
       if(page == 0) { 
         table.html(''); 
         console.log(response.sort == 'ASC');
-        $('#btn-load-more').data('sort', response.sort).data('page', 1);
+        $('#btn-load-more').data('sort', response.sort).data('page', 1); 
         $('#sort-toggle').data('sort', (response.sort == 'ASC') ? 'DESC' : 'ASC');
         $('#sort-toggle').find('i').toggleClass('fa-caret-square-up').toggleClass('fa-caret-square-down');
-   
+        
        } else {
         btn.data('page', parseInt(page, 10) + 1);     
       }

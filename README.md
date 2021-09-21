@@ -7,7 +7,7 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 
 - **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (NEEDS REVIEW)
 
-<!--  * Page 2 worked coincidently but the bug is actually with the function that detects what page the load is on. Changing the url to 2 and then clicking load more resulted in the page going back to the original page set. It should have gone to the next page.  -->
+<!--  Added a set before action in metrics controller to set the page info, the method checks to see if the page is nil if so it sets the next page to 2 and if not it sets the next page based on the page its on. --> 
 
 - **Bugfix**: Currently if the same machine reports new values, it will create new Metric records. Change POST /metrics to update an existing Metric value if there already exists a record with the same machine_id and category. (NEEDS REVIEW)
 
