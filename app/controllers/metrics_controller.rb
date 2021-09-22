@@ -23,21 +23,21 @@ class MetricsController < ApplicationController
   #   if metric.exists?
   #       Metric.update(value)
   #       render json: metric.to_json, status: 201
-
-  # end  // Ask about creating another method during dev hour
+  # end  
 
   def create
-    metric = Metric.where(category: metric_params[:category], machine_id: metric_params[:machine_id])
+    metric = Metric.find_by(machine_id: metric_params[:machine_id], category: metric_params[:category])
   #  try find or initialize by
-    if metric.exists?
+    if metric
       metric.update(value: metric_params[:value])
-      render status: 204
+      render json: metric.to_json, status: 200
     else
       metric = Metric.new(metric_params)
       metric.save
       render json: metric.to_json, status: 201
     end
   end
+
 
   def show; end
 

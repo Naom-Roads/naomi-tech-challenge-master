@@ -5,11 +5,11 @@ This repository contains the source code for a small metrics app which provides 
 
 It's only a simple beginning, though, so we'd like for you to add a few features to it! Below is a list of features we'd like to add. Please pick at least 2-3 tasks and give yourself no more than 5 hours to complete them.
 
-- **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (NEEDS REVIEW)
+- **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (DONE)
 
-<!--  Added a set before action in metrics controller to set the page info, the method checks to see if the page is nil if so it sets the next page to 2 and if not it sets the next page based on the page its on. --> 
+<!--  Added a set before action in metrics controller to set the page info, the method checks to see if the page is nil it sets the page to 2 or if not empty it sets the next page based on the page its on. The metrics controller already starts the page at 1 if it equals 0 --> 
 
-- **Bugfix**: Currently if the same machine reports new values, it will create new Metric records. Change POST /metrics to update an existing Metric value if there already exists a record with the same machine_id and category. (NEEDS REVIEW)
+- **Bugfix**: Currently if the same machine reports new values, it will create new Metric records. Change POST /metrics to update an existing Metric value if there already exists a record with the same machine_id and category. (DONE)
 
 <!-- ** I had to create two tests for this to work, I need to put both of those together within the api test-->
 
@@ -17,7 +17,14 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 - **Improvement**: Currently the POST /metrics endpoint is unsecured. Add some sort of authentication, could be a shared static api_key parameter.
 
 
-- **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address. (NEEDS REVIEW)
+ <!-- 
+ # Will Implement with devise 
+ # Create signup with hashed password, forgot and  comfirmation link
+ # User can Login and app will remember user 
+ # User can Logout -->
+
+
+- **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address. (DONE)
 
 <!-- Rack attack installed, initializer created and configuration to throttle based on specs above complete. Ran a test on postman and appears to be working ---> 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <title>Statapp</title>
@@ -15,10 +15,18 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    
-    <%= render "layouts/navigation"%>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Data Visualizer</a>
+          <form id="search">
+                    <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
+                </form>
+      </div>
+    </nav>
+   
+    <%= yield %>
   </body>
+ 
+ 
+ 
