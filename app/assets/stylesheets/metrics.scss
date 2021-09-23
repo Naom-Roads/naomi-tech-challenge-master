@@ -1,16 +1,36 @@
 body {
-  padding-top:100px;
+  padding-top: 100px;
 }
 
 h6 {
-  border-bottom:1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.navbar-brand {
+  float: left; 
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-group {
+  margin-left: auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: row;
+  float: right;
+  padding: 5px; 
 }
 
 .report-list-wrapper {
   overflow-y: auto;
   .list-group-item {
-    padding:0.2em 0.5em;
-    font-size:0.8rem;
-    font-weight:bold;
+    padding: 0.2em 0.5em;
+    font-size: 0.8rem;
+    font-weight: bold;
   }
 }

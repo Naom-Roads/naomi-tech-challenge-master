@@ -18,10 +18,7 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 
 
  <!-- 
- # Will Implement with devise 
- # Create signup with hashed password, forgot and  comfirmation link
- # User can Login and app will remember user 
- # User can Logout -->
+ # Implemented Devise, user can sign up, sign in and log out. Authenticity token is created during signin and is destroyed at sign out. Created a user table to store user sign in data.  -->
 
 
 - **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address. (DONE)

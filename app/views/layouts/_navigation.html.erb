@@ -17,18 +17,19 @@
 
     <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-      <div class="container">
+ 
         <a class="navbar-brand" href="/">Data Visualizer</a>
-
-           <li class="nav-item">
-     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<div class="nav-group">
+  <li class="nav-item">
+     <%= link_to 'Logout', destroy_user_session_path, class: "btn btn-warning", method: :delete %>
       
         </li>
+        <li class="nav-item">
           <form id="search">
                     <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
                 </form>
-   
-  
+</li>
+
     </nav>
    
     <%= yield %>
