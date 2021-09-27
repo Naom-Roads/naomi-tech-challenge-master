@@ -14,8 +14,7 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 <!-- ** I had to create two tests for this to work, I need to put both of those together within the api test-->
 
 
-- **Improvement**: Currently the POST /metrics endpoint is unsecured. Add some sort of authentication, could be a shared static api_key parameter.
-
+- **Improvement**: Currently the POST /metrics endpoint is unsecured. Add some sort of authentication, could be a shared static api_key parameter. (Needs Review)
 
  <!-- 
  # Implemented Devise, user can sign up, sign in and log out. Authenticity token is created during signin and is destroyed at sign out. Created a user table to store user sign in data.  -->
@@ -25,13 +24,17 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 
 <!-- Rack attack installed, initializer created and configuration to throttle based on specs above complete. Ran a test on postman and appears to be working ---> 
 
-- **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid.
+- **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid. (IN PROGRESS)
 
 
 - **Feature**: Add a new page with a view based on a single machine_id. List all of the metric categories for that machine and their values in a table. Update the main list to make the machine_ids clickable to go here.
 
 
+
 - **Feature**: Add a Search box to the header. This should be able to search full or partial machine_ids and list the results on a new page.
+
+
+
 
 Feel free to add any gems you'd like (e.g. RackAttack, React-rails, etc.) and add models (e.g. Machine).
 
