@@ -32,12 +32,9 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 * need to connect the page to the search function and create link from the metrics List 
 
 
+- **Feature**: Add a new page with a view based on a single machine_id. List all of the metric categories for that machine and their values in a table. Update the main list to make the machine_ids clickable to go here. (IN PROGRESS)
 
-- **Feature**: Add a new page with a view based on a single machine_id. List all of the metric categories for that machine and their values in a table. Update the main list to make the machine_ids clickable to go here.
-
-
-
-- **Feature**: Add a Search box to the header. This should be able to search full or partial machine_ids and list the results on a new page.
+- **Feature**: Add a Search box to the header. This should be able to search full or partial machine_ids and list the results on a new page. (IN PROGRESS)
 
 
 
