@@ -8,8 +8,7 @@ class MetricsController < ApplicationController
       format.html do
         @chart_data = Metric.where(category: @category).group(:value).limit(10).order(Arel.sql('COUNT(metrics.value) DESC')).size
         @metrics = Metric.where(category: @category).order(machine_id: @sort_dir).page(@page)
-       
-      end  # added @page value in place of params 
+      end  # added @page value in place of params
 
       format.json do
         @metrics = Metric.where(category: @category).order(machine_id: @sort_dir).page(@page)
@@ -23,11 +22,11 @@ class MetricsController < ApplicationController
   #   if metric.exists?
   #       Metric.update(value)
   #       render json: metric.to_json, status: 201
-  # end  
+  # end
 
   def create
     metric = Metric.find_by(machine_id: metric_params[:machine_id], category: metric_params[:category])
-  #  try find or initialize by
+    #  try find or initialize by
     if metric
       metric.update(value: metric_params[:value])
       render json: metric.to_json, status: 200
@@ -38,8 +37,7 @@ class MetricsController < ApplicationController
     end
   end
 
-
-  def show; end
+ 
 
   private
 
@@ -47,9 +45,8 @@ class MetricsController < ApplicationController
     params.require(:metric).permit(:machine_id, :category, :value)
   end
 
-  def set_page_info 
-    @page = params[:page].nil? ? 2 : params[:page].next # dynamic page loading here 
-
+  def set_page_info
+    @page = params[:page].nil? ? 2 : params[:page].next # dynamic page loading here
   end
 
   def set_category_info

@@ -26,6 +26,12 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 
 - **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid. (IN PROGRESS)
 
+* Created generated machine controller with show action and search 
+* Need to create a machine table that has a one to many relationship with metrics
+* Need to give html url a name that displays the machine name or id
+* need to connect the page to the search function and create link from the metrics List 
+
+
 
 - **Feature**: Add a new page with a view based on a single machine_id. List all of the metric categories for that machine and their values in a table. Update the main list to make the machine_ids clickable to go here.
 
