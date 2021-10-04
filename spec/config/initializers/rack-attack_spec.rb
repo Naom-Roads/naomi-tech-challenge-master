@@ -1,25 +1,43 @@
 require 'rails_helper'
 
+def setup_rack_attack_cache_store
+  Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
+end
+
 describe 'Rack::Attack', type: :request do
+  include Rack::Test::Methods
   before(:each) do
     Rack::Attack.reset!
     setup_rack_attack_cache_store
+    @limit = 1
+    @period = 600
+    @ip = "1.2.3.4"
   end
 
-  def setup_rack_attack_cache_store
-    Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
+  describe "throttle excessive POST requests by IP Address" do
+    context "number of requests is lower than the limit" do
+      it "does not change the request status" do
+        @limit.times do
+          post "/metrics", {}, "REMOTE_ADDR" => @ip
+          expect(last_response.status).to_not eq(429)
+        end
+      end
+    end
+
+    context "number of requests is higher than limit" do
+      it "changes the request status to 429" do
+        (@limit * 2).times do |i|
+          post "/metrics", headers: { "REMOTE_ADDR" => @ip }
+          expect(last_response.status).to eq(429) if i > @limit
+
+        end
+      end
+    end
   end
-
-
-  it "throttle excessive requests by IP Address" do
-    limit = 2
-    period = 600
-    ip = "1.2.3.4"
-    limit.times do
-      Rack::Attack.cache.count("metrics/ip:#{ip}", period)
-    end
-
-    post "/metrics", headers: { REMOTE_ADDR: ip }
-    expect(response).to have_http_status(:too_many_requests)
-    end
 end
+
+
+
+
+
+
