@@ -285,6 +285,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rack-attack
+  rack-test
   rails (~> 5.2.3)
   redis
   rspec-rails

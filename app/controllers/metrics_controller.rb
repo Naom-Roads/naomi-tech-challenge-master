@@ -1,4 +1,9 @@
 class MetricsController < ApplicationController
+  #TODO it's common (though not required) to have search be a part of the index page, with the default being 'all' and any search constraints being params.
+  # This lets us stay within resourceful routing patterns nicely and means less non-standard route names to remember
+
+
+
   before_action :set_category_info, only: [:index]
   before_action :set_page_info, only: [:index]
 

@@ -1,5 +1,7 @@
 class Rack::Attack
   Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
+  # TODO test rack attack using the information Maya gave you
+
 
   # throttle post /metrics 1 minute per ip
 
