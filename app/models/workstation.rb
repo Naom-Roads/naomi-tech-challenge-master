@@ -8,4 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Workstation < ApplicationRecord
+  belongs_to :user
+  has_many :metrics
+  validates :name, presence: true
 end

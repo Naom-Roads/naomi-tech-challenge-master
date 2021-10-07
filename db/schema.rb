@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_10_05_145429) do
     t.uuid "machine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["category"], name: "index_metrics_on_category"
   end
 
