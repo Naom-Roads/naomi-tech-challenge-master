@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   
+  get 'workstation/show'
+  get 'workstation/search'
   default_url_options :host => "localhost:3000"
 
   devise_for :users do
@@ -9,7 +11,5 @@ Rails.application.routes.draw do
 
   resources :metrics, only: [:index, :show, :create]
   root to: "metrics#index"
-  get 'show', to: "machine#show"
-  get 'search', to: "machine#search"
 
 end

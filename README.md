@@ -21,8 +21,7 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 
 
 - **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address. (DONE)
-
-<!-- Rack attack installed, initializer created and configuration to throttle based on specs above complete. Ran a test on postman and appears to be working ---> 
+** RSPEC RACK ATTACK TESTING (Needs Review), Ran a test in postman as well.
 
 - **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid. (IN PROGRESS)
 
