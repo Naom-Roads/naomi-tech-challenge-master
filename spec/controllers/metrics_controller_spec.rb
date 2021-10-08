@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe MetricsController, type: :controller do
   before(:all) do
     20.times do

@@ -21,5 +21,6 @@ FactoryBot.define do
     category { "os_version" }
     value { "Windows 10 Pro" }
     machine_id { Faker::Internet.uuid }
+    workstation { build(:workstation)}
   end
 end

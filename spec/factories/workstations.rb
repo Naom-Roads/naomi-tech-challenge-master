@@ -14,6 +14,8 @@
 #
 FactoryBot.define do
   factory :workstation do
-    name { "MyString" }
+    user { build(:user)}
+    name { Faker::Internet.name }
+
   end
 end
