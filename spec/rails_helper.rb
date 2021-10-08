@@ -11,6 +11,7 @@ require 'capybara/rails'
 require 'database_cleaner/active_record'
 
 
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -53,6 +54,8 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Capybara::DSL
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Warden::Test::Helpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

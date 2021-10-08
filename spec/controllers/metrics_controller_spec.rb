@@ -2,6 +2,7 @@ require 'rails_helper'
 
 
 RSpec.describe MetricsController, type: :controller do
+  login_user
   before(:all) do
     20.times do
       FactoryBot.create(:metric)
@@ -27,7 +28,9 @@ RSpec.describe MetricsController, type: :controller do
               value: 20
             }
           }
+          puts response.parsed_body
           expect(response.status).to eq 400
+
         end
       end
 

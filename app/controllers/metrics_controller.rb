@@ -31,7 +31,6 @@ class MetricsController < ApplicationController
 
   def create
     metric = Metric.find_by(machine_id: metric_params[:machine_id], category: metric_params[:category])
-    #  try find or initialize by
     if metric
       metric.update(value: metric_params[:value])
       render json: metric.to_json, status: 200
