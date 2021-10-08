@@ -1,2 +1,22 @@
 <h1>Metrics#show</h1>
 <p>Find me in app/views/metrics/show.html.erb</p>
+
+
+<table class="table">
+  Workstation Name</th>
+  <th scope="col"><%= @workstation.name %></th>
+  </tr>
+  </thead>
+
+  <%= @metrics.each do |w| %>
+    <tbody>
+    <tr>
+      <td><%= w.workstation_id %></td>
+      <td><%= w.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+

@@ -1,16 +1,16 @@
 class WorkstationController < ApplicationController
 
+  def index
+
+  end
+
   def show
-    @workstation = Workstation.find_by(params[:id])
+    @workstation = Workstation.find(params[:id])
     @user = User.find(@workstation.user_id)
 
-    end
 
-
-
-
-
-  def search
   end
+
+
 
 end

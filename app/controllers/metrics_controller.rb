@@ -42,7 +42,6 @@ class MetricsController < ApplicationController
     end
   end
 
- 
 
   private
 

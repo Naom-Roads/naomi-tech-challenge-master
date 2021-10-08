@@ -19,8 +19,8 @@ describe 'Rack::Attack', type: :request do
       it "does not change the request status" do
         @limit.times do
           post "/metrics", {}, "REMOTE_ADDR" => @ip
-          expect(last_response.status).to_not eq(429)
         end
+        expect(last_response.status).to_not eq(429)
       end
     end
 
@@ -28,9 +28,8 @@ describe 'Rack::Attack', type: :request do
       it "changes the request status to 429" do
         (@limit * 2).times do |i|
           post "/metrics", headers: { "REMOTE_ADDR" => @ip }
-          expect(last_response.status).to eq(429) if i > @limit
-
         end
+        expect(last_response.status).to eq(429)
       end
     end
   end
