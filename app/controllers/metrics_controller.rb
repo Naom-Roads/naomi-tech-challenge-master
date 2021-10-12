@@ -30,17 +30,27 @@ class MetricsController < ApplicationController
   # end
 
   def create
-    metric = Metric.find_by(machine_id: metric_params[:machine_id], category: metric_params[:category])
+    if @verify_uuid_format != true
+      render json: nil, status:400
+      return
+    end
+    if metric_params[:category].empty? || metric_params[:value].empty?
+      render json: nil, status: 400
+      return
+    end
+
+    metric = Metric.find_by(machine_id: metric_params[:machine_id], category: metric_params[:category], value: metric_params[:value])
+
     if metric
       metric.update(value: metric_params[:value])
       render json: metric.to_json, status: 200
+
     else
-      metric = Metric.new(metric_params)
+      metric = Metric.new()
       metric.save
       render json: metric.to_json, status: 201
     end
   end
-
 
   private
 

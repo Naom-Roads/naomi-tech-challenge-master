@@ -24,3 +24,5 @@ FactoryBot.define do
     workstation { build(:workstation)}
   end
 end
+
+

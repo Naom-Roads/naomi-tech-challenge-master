@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe MetricsController, type: :controller do
   login_user
   before(:all) do
@@ -30,35 +29,32 @@ RSpec.describe MetricsController, type: :controller do
           }
           puts response.parsed_body
           expect(response.status).to eq 400
-
         end
       end
 
-     
-        describe 'creates or updates a metric' do
-          context 'when machine_id and category exist' do
-            before do
-              @metric = Metric.last
-            end
-            it 'updates the existing value instead of creating a new metric record' do
-              post :create, params: {
-                metric: {
-                  machine_id: @metric.machine_id,
-                  category: @metric.category,
-                  value: 30
-                }
+      describe 'creates or updates a metric' do
+        context 'when machine_id and category exist' do
+          before do
+            @metric = Metric.first
+          end
+          it 'updates the existing value instead of creating a new metric record' do
+            post :create, params: {
+              metric: {
+                machine_id: @metric.machine_id,
+                category: @metric.category,
+                value: 30
               }
-              expect(response.status).to eq 200
-            end
+            }
+            expect(response.status).to eq 200
           end
         end
-  
+      end
 
       it 'should return an error code if category is missing' do
         post :create, params: {
           metric: {
             machine_id: Faker::Internet.uuid,
-            category: 'ram_usage',
+            category: nil,
             value: 20
           }
         }

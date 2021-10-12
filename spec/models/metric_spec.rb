@@ -31,5 +31,4 @@ RSpec.describe Metric, type: :model do
       expect{ FactoryBot.create(:metric, value: nil) }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
-
 end
