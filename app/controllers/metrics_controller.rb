@@ -29,6 +29,8 @@ class MetricsController < ApplicationController
   #       render json: metric.to_json, status: 201
   # end
 
+  #TODO Create Update action for values that redirects to creation path if category and machine_id don't exist
+
   def create
     if @verify_uuid_format != true
       render json: nil, status:400
