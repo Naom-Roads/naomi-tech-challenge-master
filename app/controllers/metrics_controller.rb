@@ -18,7 +18,7 @@ class MetricsController < ApplicationController
   end
 
   #Decided to not do update action as my idea of calling an action into another action appeared to be bad practice.
-  # I will keep instead keep the create extend it with the update logic and keep both tests
+  # Decided to extend 'create' action instead. Still added two tests in rspec to make sure they are working, both have passed
 
 
   def create

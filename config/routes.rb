@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get "users/show"
   end
 
-  resources :metrics, only: [:index, :show, :create, :update]
+  resources :metrics, only: [:index, :show, :create]
   resources :workstations, only: [:index, :show]
   root to: "metrics#index"
 
