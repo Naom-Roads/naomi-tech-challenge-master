@@ -1,0 +1,36 @@
+
+
+<table class="table">
+
+  <thead>
+  <tr>
+    <th>User</th>
+    <th>Email</th>
+    <th>Machine_id</th>
+    <th>Workstation Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @workstations.each do |workstation| %>
+    <tr>
+      <td>
+        <%= workstation.user_id %>
+      </td>
+
+      <td>
+        <%= workstation.user.email %>
+      </td>
+
+      <td>
+        <%= workstation.machine_id %>
+      </td>
+
+      <td>
+        <%= link_to "#{workstation.name}", metrics_path %>
+
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

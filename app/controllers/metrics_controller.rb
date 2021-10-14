@@ -47,7 +47,7 @@ class MetricsController < ApplicationController
   private
 
   def metric_params
-    params.require(:metric).permit(:machine_id, :category, :value)
+    params.require(:metric).permit(:machine_id, :category, :value, :workstation_id)
   end
 
   def set_page_info

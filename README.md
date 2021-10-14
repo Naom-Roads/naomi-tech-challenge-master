@@ -23,7 +23,7 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 - **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address. (DONE)
 ** RSPEC RACK ATTACK TESTING (Needs Review), Ran a test in postman as well.
 
-- **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid. (IN PROGRESS)
+- **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid. (DONE)
 
 - **Feature**: Add a new page with a view based on a single machine_id. List all of the metric categories for that machine and their values in a table. Update the main list to make the machine_ids clickable to go here. (IN PROGRESS)
 
