@@ -89,6 +89,14 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    elasticsearch (7.15.0)
+      elasticsearch-api (= 7.15.0)
+      elasticsearch-transport (= 7.15.0)
+    elasticsearch-api (7.15.0)
+      multi_json
+    elasticsearch-transport (7.15.0)
+      faraday (~> 1)
+      multi_json
     erubi (1.10.0)
     execjs (2.8.1)
     factory_bot (6.2.0)
@@ -153,6 +161,7 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
+    multi_json (1.15.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
     nokogiri (1.12.4)
@@ -280,6 +289,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner-active_record
   devise
+  elasticsearch (~> 7.14)
   factory_bot_rails
   faker
   faraday

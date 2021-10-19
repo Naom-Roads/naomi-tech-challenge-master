@@ -7,23 +7,21 @@ It's only a simple beginning, though, so we'd like for you to add a few features
 
 - **Bugfix**: The first time "Load More" is clicked, it shows the same list of machines (DONE)
 
-<!--  Added a set before action in metrics controller to set the page info, the method checks to see if the page is nil it sets the page to 2 or if not empty it sets the next page based on the page its on. The metrics controller already starts the page at 1 if it equals 0 --> 
+<!-- Added a set before action in metrics controller to set the page info, the method checks to see if the page is nil it sets the page to 2 or if not empty it sets the next page based on the page its on. The metrics controller already starts the page at 1 if it equals 0 --> 
 
 - **Bugfix**: Currently if the same machine reports new values, it will create new Metric records. Change POST /metrics to update an existing Metric value if there already exists a record with the same machine_id and category. (DONE)
-
-<!-- ** I had to create two tests for this to work, I need to put both of those together within the api test-->
+* All 6 tests are working now, created update in create action.
 
 
 - **Improvement**: Currently the POST /metrics endpoint is unsecured. Add some sort of authentication, could be a shared static api_key parameter. (Needs Review)
-
- <!-- 
- # Implemented Devise, user can sign up, sign in and log out. Authenticity token is created during sign-in and is destroyed at sign out. Created a user table to store user sign in data.  -->
+ - Implemented Devise, user can sign up, sign in and log out. Authenticity token is created during sign-in and is destroyed at sign out. Created a user table to store user sign in data.  -->
 
 
 - **Improvement**: Add the rack-attack gem to throttle POST /metrics to 1 request per minute per IP address. (DONE)
 ** RSPEC RACK ATTACK TESTING (Needs Review), Ran a test in postman as well.
 
-- **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid. (DONE)
+  - **Feature**: Allow the metrics machine to have a friendly name rather than just a uuid. (DONE)
+    - Created a workstation with a name attribute that is connected to metrics 
 
 - **Feature**: Add a new page with a view based on a single machine_id. List all of the metric categories for that machine and their values in a table. Update the main list to make the machine_ids clickable to go here. (IN PROGRESS)
 

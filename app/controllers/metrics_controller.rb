@@ -20,27 +20,19 @@ class MetricsController < ApplicationController
   #Decided to not do update action as my idea of calling an action into another action appeared to be bad practice.
   # Decided to extend 'create' action instead. Still added two tests in rspec to make sure they are working, both have passed
 
-
   def create
-
-    if @verify_uuid_format != true
-      render json: nil, status: 400
-      return
-    end
-
     if metric_params[:category].empty? || metric_params[:value].empty?
-      render json: nil, status: 400
-      return
+      return render json: nil, status: 400
     end
 
-    metric = Metric.find_by(machine_id: metric_params[:machine_id], category: metric_params[:category], value: metric_params[:value])
+    metric = Metric.find_by(machine_id: metric_params[:machine_id], category: metric_params[:category])
     if metric
       metric.update(value: metric_params[:value])
       render json: metric.to_json, status: 200
     else
-      metric = Metric.new()
-      metric.save
+      metric = Metric.create(metric_params)
       render json: metric.to_json, status: 201
+      puts metric.errors.messages
     end
   end
 
