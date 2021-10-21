@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
+import "@fortawesome/fontawesome-free/css/all"
 
 //= require rails-ujs
 //= require activestorage
