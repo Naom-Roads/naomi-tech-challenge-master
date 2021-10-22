@@ -5,7 +5,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/9cb7282100.js" crossorigin="anonymous"></script>
+  <script type="module" src="https://kit.fontawesome.com/9cb7282100.js" crossorigin="anonymous"></script>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -21,16 +21,16 @@
         <%= link_to 'Logout', destroy_user_session_path, class: "btn btn-warning", method: :delete %>
       <% end %>
     </li>
-
     <li class="nav-item">
-
       <form id="search">
-        <%= form_tag workstations_path, method: :get do %>
+        <%= form_with url: workstations_path, method: :get do |f| %>
           <div class="container-sm-9">
             <div class="col-sm-9 search">
-              <%= text_field_tag :workstation, params[:name], class: "form-control me-2", placeholder: "Search" %>
-                <%= button_tag type: :submit, class: "btn btn-success fa fa-search" do %>
-
+              <%= f.label :search, "Search" %>
+              <%= f.text_field :search, value: params[:search], class: "form-control me-2", placeholder: "Search" %>
+              <i class="btn btn-success fa fa-search">
+                <%= f.submit "Search", class: "btn btn-success fa fa-search" %>
+              </i>
         <% end %>
         </div>
         </div>
@@ -38,7 +38,7 @@
     </li>
   </div>
 </nav>
+
 <%= yield %>
 </body>
 </html>
-<% end %>

@@ -15,13 +15,12 @@
   <% @workstations.each do |workstation| %>
     <tr>
       <td>
-        <%= workstation.user_id %>
+        <%= workstation.user.id %>
       </td>
 
       <td>
         <%= workstation.user.email %>
       </td>
-
       <td>
         <%= workstation.machine_id %>
       </td>

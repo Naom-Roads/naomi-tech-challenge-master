@@ -17,4 +17,12 @@ class Workstation < ApplicationRecord
   belongs_to :user
   has_many :metrics
   validates :name, presence: true
+
+  def self.search(search)
+    if search
+      Workstation.where("name ILIKE ?", "%#{search}%")
+    else
+      Workstation.none
+    end
+  end
 end

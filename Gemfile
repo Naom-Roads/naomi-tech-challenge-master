@@ -76,4 +76,5 @@ gem 'hiredis'
 gem 'rack-attack'
 gem 'rack-test', require: 'rack/test'
 gem 'devise'
+gem "font-awesome-rails"
 
